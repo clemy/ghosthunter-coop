@@ -1,0 +1,179 @@
+/* Styles for setting up a full screen div as container
+    for visualization with a webgl canvas and
+    styles for the 2D/HTML menu overlays.
+   Copyright notice: Bernhard C. Schrenk
+    The styles are my own work, but I also use them
+    in other (open source) projects I created.
+*/
+
+body {
+    background-color: #101114;
+    margin: 0px;
+    font-family: Tahoma, Geneva, sans-serif;
+    overflow: hidden;
+}
+
+#visualization {
+    position: absolute;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+#visualization canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 6px 5px 5px 10px;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+    color: #005c9b;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.title a {
+    color: #005c9b;
+    text-decoration: none;
+}
+
+.subtitle {
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    padding:8px 5px 5px 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.control-sidebar {
+    width: 400px;
+    margin: 62px 10px 0px 10px;
+    padding: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: left;
+    max-height: calc(100vh - 62px);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 92, 155, 0.75) rgba(0, 0, 0, 0);
+}
+
+.control-sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.control-sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+    margin-left: 1px;
+}
+
+.control-sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 92, 155, 0.75);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    opacity: 0.75;
+}
+
+.control-sidebar.right {
+    margin: 0px 0px 0px 0px;
+    top: 20px;
+    right: 10px;
+    position: absolute;
+}
+
+.control-sidebar.middle {
+    width: calc(100vw - 540px);
+}
+
+.control-container {
+    padding: 0px;
+    margin: 0px 0px 15px 0px;
+    border: 1px solid #005c9b;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #00253f;
+    opacity: 0.75;
+    color: white;
+}
+
+.control-container .header {
+    font-weight: bold;
+}
+
+.control-container .header_noclick {
+    font-weight: bold;
+}
+
+.control-container .subheader {
+    font-weight: normal;
+    font-style: italic;
+    font-size: small;
+}
+
+.control-container .expand-icon {
+    float: right;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.control-container .inner-container {
+    margin: 0px 5px 0px 5px;
+}
+
+.control-container .inner-container.hide {
+    display: none;
+}
+
+.control-container .inner-container-always_expanded {
+    margin: 0px 5px 0px 5px;
+}
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#wait {
+    opacity: 1;
+    transition: opacity 800ms;
+}
+#wait.hide {
+    opacity: 0;
+}
+
+#wait img {
+    width: 75px;
+    height: 75px;
+    top: 0px;
+    left: 340px;
+    position: absolute;
+}
+
+#status {
+    font-family: monospace;
+}
+.error {
+    color: red;
+}
+
+#help_menu td {
+    padding-right: 15px;
+    font-family: monospace;
+}

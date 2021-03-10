@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Hunter</title>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="visualization" tabindex="1">
+    </div>
+
+    <div class="title">
+        <a href="https://clemy.org/">Ghost Hunter COOP</a>
+    </div>
+
+    <div class="control-sidebar">
+        <div id="help_menu" class="control-container">
+            <a class="expand-icon expand-click" href="#" title="Click to open or close">-</a>
+            <div class="header expand-click">Game <span class="subheader">
+                    Lives: <span id="lives"></span> Dots: <span id="dots"></span>
+                </span>
+            </div>
+            <div class="inner-container">
+                <p>
+                <table>
+                    <tr>
+                        <td>arrow keys</td>
+                        <td>move</td>
+                    </tr>
+                    <tr>
+                        <td>space</td>
+                        <td>jump</td>
+                    </tr>
+                    <tr>
+                        <td>u p</td>
+                        <td>switch light model</td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>toggle spotlight</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>toggle shadows</td>
+                    </tr>
+                </table>
+                </p>
+            </div>
+        </div>
+
+        <div id="status_menu" class="control-container">
+            <a class="expand-icon expand-click" href="#" title="Click to open or close">-</a>
+            <div class="header expand-click">Status
+                <span class="subheader">
+                    FPS: <span id="fps">-</span> Min: <span id="fps-min">-</span> Max: <span id="fps-max">-</span>
+                </span>
+            </div>
+            <div class="inner-container">
+                <p id="status">Connecting..</p>
+            </div>
+        </div>
+
+        <div id="chat_menu" class="control-container">
+            <a class="expand-icon expand-click" href="#" title="Click to open or close">-</a>
+            <div class="header expand-click">Chat <span class="subheader"></span></div>
+            <div class="inner-container">
+                <form id="chat-form" charenctype="multipart/form-data" method="post">
+                    <p>
+                        <input type="text" id="chat-msg"></input>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="wait">
+        <img alt="Loading" src="bunny.png" />
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

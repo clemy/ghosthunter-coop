@@ -1,0 +1,17 @@
+{
+  "name": "gfx-ghosthunt-coop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bernhard C. Schrenk <clemy@clemy.org>",
+  "license": "GPLv3",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.3",
+    "unique-names-generator": "^4.3.1"
+  }
+}
