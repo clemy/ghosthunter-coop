@@ -50,7 +50,7 @@ io.on("connect", (socket) => {
     gameLoop.start();
 });
 
-http.listen(4000, function () {
+http.listen(8080, function () {
     console.log();
-    console.log("Start your browser and go to http://localhost:4000/");
+    console.log("Start your browser and go to http://localhost:8080/");
 });
