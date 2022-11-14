@@ -196,9 +196,28 @@ class GameState {
             }
 
             var justTurned = false;
+            var absoluteRequestedDir = null;
             if (player.requestedDir !== null) {
-                if (this.labyrinth.isNormal(this.labyrinth.getRelativeField(player.pos, player.requestedDir))) {
-                    player.dir = player.requestedDir;
+                switch (player.requestedDir) {
+                    case Labyrinth.Direction.RIGHT:
+                        absoluteRequestedDir = (player.dir + 3) % 4;
+                        break;
+                    case Labyrinth.Direction.UP:
+                        player.requestedDir = null;
+                        break;
+                    case Labyrinth.Direction.LEFT:
+                        absoluteRequestedDir = (player.dir + 1) % 4;
+                        break;
+                    case Labyrinth.Direction.DOWN:
+                        absoluteRequestedDir = (player.dir + 2) % 4;
+                        break;
+                    default:
+                        throw "invalid direction";
+                }
+            }
+            if (absoluteRequestedDir !== null) {
+                if (this.labyrinth.isNormal(this.labyrinth.getRelativeField(player.pos, absoluteRequestedDir))) {
+                    player.dir = absoluteRequestedDir;
                     player.requestedDir = null;
                     justTurned = true;
                 }
