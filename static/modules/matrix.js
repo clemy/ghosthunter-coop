@@ -166,6 +166,19 @@ Matrix4.rotateZ = function (angle) {
     ]);
 };
 
+Matrix4.perspective = function (fov, aspect, near, far) {
+    // from Mozilla WebGL documentation
+    var f = 1.0 / Math.tan(fov / 2);
+    var rangeInv = 1 / (near - far);
+
+    return new Matrix4([
+        f / aspect, 0, 0, 0,
+        0, f, 0, 0,
+        0, 0, (near + far) * rangeInv, -1,
+        0, 0, near * far * rangeInv * 2, 0
+    ]);
+};
+
 // TODO: near/far not correctily handled. does it need to be fixed?
 Matrix4.cabinet = function (width, aspect, angle, near, far) {
     const x = 2 / width;

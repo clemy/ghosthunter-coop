@@ -85,8 +85,8 @@ class Camera {
         return this.transformation.invnormalsmatrix();
     }
     projectionMatrix(aspectRatio) {
-        const cabinet = Matrix4.cabinet(15, aspectRatio, Math.atan(2), this.near, this.far);
-        return cabinet;
+        const projection = Matrix4.perspective(this.fov, aspectRatio, this.near, this.far);
+        return projection;
     }
 }
 
@@ -333,10 +333,10 @@ class Scene {
             this.bigDotsCount = this.gameState.bigDots.size;
         }
         const playerPos = this.playerNode.transformation.translation;
-        const canvasClientWidth = this.canvasgl.canvas.clientWidth;
-        const menuWidthInWorldCoords = 400 / canvasClientWidth * 15;
-        this.camera.transformation.translation = Vector3.fromXYZ(playerPos.x - menuWidthInWorldCoords / 2, 0.5, playerPos.z);
-        //this.light.transformation.translation = this.ghostHunter.ghosthunterNode.transformation.translation.add3(Vector3.fromXYZ(13, 15, 13));
+        const playerRotation = this.playerNode.transformation.rotation.y - Math.PI / 2;
+        this.camera.transformation.rotation.y = playerRotation;
+        const thirdPersonOffset = Matrix4.rotateY(playerRotation).mulV3(Vector3.fromXYZ(0, 1, 1.5));
+        this.camera.transformation.translation = playerPos.add3(thirdPersonOffset);
         this.light.lightDirection = playerPos.sub3(this.light.position());
 
         const gl = this.canvasgl.gl;
